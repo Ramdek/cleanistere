@@ -1,0 +1,27 @@
+{
+    "name": "Cleanistere - DEV",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+    "features": {
+    },
+
+    // Setup workspace
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "forwardPorts": [ 8080 ],
+
+    // Extensions and sane defaults
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ritwickdey.liveserver",
+                "esbenp.prettier-vscode",
+                "formulahendry.auto-rename-tag"
+            ],
+            "settings": {
+                "files.eol": "\n",
+                "editor.formatOnSave": true
+            }
+        }
+    }
+}
