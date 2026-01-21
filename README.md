@@ -17,8 +17,10 @@
 - Fonctionnalités utiles : moteur de recherche par zone géographique, carte interactive, calendrier, affichage “ramassages à venir”, newsletter locale
 
 ## User Story
+### Story 1
 > En tant que citoyenne engagée, je veux pouvoir consulter une carte interactive des prochains ramassages afin de trouver facilement une action proche de chez moi.
 
+### Story 2
 > En tant que participante régulière, je veux recevoir une newsletter récapitulative des dernières collectes pour suivre l’impact de mes actions et rester motivée.
 
 # Persona 2 — « Julien, le professeur »
@@ -40,8 +42,10 @@
 - Fonctionnalités utiles : formulaire “Organiser un ramassage”, guide “comment faire”, possibilité de “partager mes résultats”, ressources enfants / pédagogiques
 
 ## User story
+### Story 1
 > En tant qu’enseignant, je veux pouvoir télécharger un kit pédagogique prêt à l’emploi afin de sensibiliser mes élèves à la pollution plastique avant le ramassage.
 
+### Story 2
 > En tant qu’organisateur de sortie scolaire, je veux m’inscrire à une collecte et déclarer ma classe afin que les responsables puissent prévoir le matériel adapté et assurer la sécurité du groupe.
 
 # Persona 3 — « Claire, la maman écoresponsable »
@@ -63,8 +67,10 @@
 - Fonctionnalités utiles : filtres “familles / enfants”, ateliers proposés, messagerie rassurante, témoignages de familles
 
 ## User story
+### Story 1
 > En tant que mère de famille, je veux pouvoir filtrer les événements “accessibles aux enfants” afin de choisir une activité adaptée à mes enfants.
 
+### Story 2
 > En tant que participante occasionnelle, je veux recevoir une confirmation claire (lieu, durée, matériel fourni) après mon inscription pour préparer la sortie sereinement.
 
 # Persona 4 — « Luc, le bénévole expérimenté / militant »
@@ -86,8 +92,10 @@
 - Fonctionnalités utiles : interface “organisateur avancé”, signaler zone de déchets, téléchargement de données, partenariat collectivités
 
 ## User story
+### Story 1
 > En tant que bénévole expérimenté, je veux pouvoir créer et publier un événement de ramassage sur le site afin d’inviter d’autres participants à se joindre à moi.
 
+### Story 2
 > En tant qu’organisateur, je veux accéder aux statistiques des déchets collectés afin de mesurer l’impact de mes actions et communiquer ces résultats à mes partenaires.
 
 
@@ -109,6 +117,8 @@
 - Fonctionnalités utiles : tableau de bord local par commune, export des résultats, module “soutien collectivités”, contact avec les organisateurs
 
 ## User story
+### Story 1
 > En tant qu’agente municipale, je veux consulter le calendrier des collectes organisées dans ma commune afin de coordonner les actions locales et éviter les doublons.
 
+### Story 2
 > En tant qu’élue locale, je veux pouvoir télécharger un rapport des résultats (quantités, participation) afin de valoriser ces initiatives dans les bilans environnementaux de la mairie.
