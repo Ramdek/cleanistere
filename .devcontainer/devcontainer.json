@@ -10,13 +10,19 @@
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "forwardPorts": [ 8080 ],
 
+    // Install linters
+    "postCreateCommand": ["bash", "-c", ".devcontainer/install.sh"],
+
     // Extensions and sane defaults
     "customizations": {
         "vscode": {
             "extensions": [
                 "ritwickdey.liveserver",
                 "esbenp.prettier-vscode",
-                "formulahendry.auto-rename-tag"
+                "formulahendry.auto-rename-tag",
+                "htmlhint.vscode-htmlhint",
+                "stylelint.vscode-stylelint",
+                "dbaeumer.vscode-eslint"
             ],
             "settings": {
                 "files.eol": "\n",
