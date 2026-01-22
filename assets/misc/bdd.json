@@ -171,7 +171,8 @@
       "zone_couverte_km": 2.5,
       "dechets_vises_kg": 500,
       "dechets_recoltes_kg": 620,
-      "nb_participants": 45
+      "nb_participants": 45,
+      "date": "2025-11-05T11:30"
     },
     {
       "id": 102,
@@ -182,7 +183,8 @@
       "zone_couverte_km": 1.8,
       "dechets_vises_kg": 300,
       "dechets_recoltes_kg": 280,
-      "nb_participants": 30
+      "nb_participants": 30,
+      "date": "2025-11-12T10:00"
     },
     {
       "id": 103,
@@ -193,7 +195,8 @@
       "zone_couverte_km": 3.0,
       "dechets_vises_kg": 600,
       "dechets_recoltes_kg": 710,
-      "nb_participants": 52
+      "nb_participants": 52,
+      "date": "2025-11-20T14:00"
     },
     {
       "id": 104,
@@ -204,7 +207,8 @@
       "zone_couverte_km": 4.2,
       "dechets_vises_kg": 800,
       "dechets_recoltes_kg": 760,
-      "nb_participants": 60
+      "nb_participants": 60,
+      "date": "2025-11-27T09:30"
     },
     {
       "id": 105,
@@ -215,7 +219,8 @@
       "zone_couverte_km": 1.5,
       "dechets_vises_kg": 200,
       "dechets_recoltes_kg": 190,
-      "nb_participants": 18
+      "nb_participants": 18,
+      "date": "2025-12-03T15:00"
     },
     {
       "id": 106,
@@ -226,7 +231,8 @@
       "zone_couverte_km": 2.0,
       "dechets_vises_kg": 350,
       "dechets_recoltes_kg": 400,
-      "nb_participants": 27
+      "nb_participants": 27,
+      "date": "2025-12-07T11:00"
     },
     {
       "id": 107,
@@ -237,7 +243,8 @@
       "zone_couverte_km": 1.2,
       "dechets_vises_kg": 150,
       "dechets_recoltes_kg": 180,
-      "nb_participants": 22
+      "nb_participants": 22,
+      "date": "2025-12-12T13:30"
     },
     {
       "id": 108,
@@ -248,7 +255,8 @@
       "zone_couverte_km": 3.8,
       "dechets_vises_kg": 700,
       "dechets_recoltes_kg": 690,
-      "nb_participants": 55
+      "nb_participants": 55,
+      "date": "2025-12-18T10:30"
     },
     {
       "id": 109,
@@ -259,7 +267,8 @@
       "zone_couverte_km": 2.6,
       "dechets_vises_kg": 420,
       "dechets_recoltes_kg": 460,
-      "nb_participants": 34
+      "nb_participants": 34,
+      "date": "2025-12-22T09:00"
     },
     {
       "id": 110,
@@ -270,7 +279,8 @@
       "zone_couverte_km": 1.0,
       "dechets_vises_kg": 120,
       "dechets_recoltes_kg": 140,
-      "nb_participants": 15
+      "nb_participants": 15,
+      "date": "2025-12-29T14:30"
     }
   ],
   "Inscrits": [

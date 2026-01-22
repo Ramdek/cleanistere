@@ -16,6 +16,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
     <script src="./assets/script/map.js" defer></script>
     <script src="./assets/script/data.js" defer></script>
+    <script src="./assets/script/script.js" defer></script>
 </head>
 
 <body class="bg-gray-100">
@@ -28,7 +29,7 @@
                 <h1 class="text-lg font-bold text-color-ocean">Cleanistère</h1>
             </div>
             <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-color-accent">Connexion/Deconnexion</button> -->
-            <button id="openModal"
+            <button id="login-button"
                 class="bg-primary hover:bg-primary-2 text-white font-bold py-2 px-4 rounded text-color-accent">Connexion/Deconnexion</button>
         </header>
 
@@ -40,9 +41,16 @@
                 </div>
             </div>
 
-            <div class="bg-white dark:bg-color-bg-main shadow-md rounded-lg mb-4 p-5">
+            <div id="presentation" class="bg-white dark:bg-color-bg-main shadow-md rounded-lg mb-4 p-5">
                 <div class="p-4 border rounded-lg border-color-border">
-                    <h2 class="font-semibold text-xl text-color-ocean">Présentation (si non connecté)</h2>
+                    <h2 class="font-semibold text-xl text-color-ocean">Présentation</h2>
+                    <div class="pres_content">
+                        <p>Ce projet vise à structurer et développer les actions de ramassage des déchets sur l’ensemble du littoral de la
+rade de Brest, de Plouzané à Plougastel-Daoulas.<br>Porté par une association environnementale locale, il s’appuie
+sur ce site participatif destiné à fédérer une communauté de bénévoles, faciliter l’organisation et la
+visibilité des initiatives, et renforcer l’engagement citoyen en faveur de la protection du littoral.<br>Intuitif et ouvert
+à tous, cet outil se veut un levier concret d’impact environnemental positif.</p>
+                    </div>
                 </div>
             </div>
 
