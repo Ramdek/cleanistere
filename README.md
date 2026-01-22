@@ -112,7 +112,7 @@
   - intégrer les actions citoyennes avec les politiques locales
   - valoriser les résultats localement (reporting, communication)
 
-- Freins / obstacles : contraintes budgétaires, harmonisation entre communes, coordination territoriale
+- Freins / obstacles : contraintes budgétaires, harmonisation entre communes, coordination territoriale.
 
 - Fonctionnalités utiles : tableau de bord local par commune, export des résultats, module “soutien collectivités”, contact avec les organisateurs
 
