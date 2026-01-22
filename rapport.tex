@@ -1,0 +1,275 @@
+\documentclass{article}
+%\usepackage[utf8]{inputenc}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry} % Page format
+\usepackage{graphicx} % Pictures
+\usepackage{float} % [H] parametre
+\usepackage{fontspec} % Custom font
+\usepackage[french]{babel} % French content
+\usepackage{hyperref} % Clickable links
+\usepackage{fourier-otf}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{epigraph}
+\input{commande}
+
+%\setromanfont{Times New Roman}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\setlength{\parskip}{1.8ex plus .9ex minus .4ex}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+\setlength{\parskip}{1.8ex plus .9ex minus .4ex}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color[HTML]{f2f8fb},   
+    commentstyle=\color{ForestGreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{purple},
+    breaklines=true
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=6pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+}
+
+\lstset{style=mystyle}
+
+\begin{titlepage}
+    \centering
+    \includegraphics[height = 3.7cm]{Image/logo_ISEN_CAMPUS_BREST.jpg}\\ [3cm]
+    \textsc{\Large Gestion projet et qualité}\\ [0.5cm]
+    \HRule \\ [0.4cm]
+    {\Huge \textbf{Projet Cleanistère}}\\ [0.5cm]
+    {\huge \textbf{SCRUM - Mise en application}}\\ [0.4cm]
+    \HRule \\ 
+    \large{Professeur : François Jaffrenou}\\ [2.5cm]
+    {\large \textbf{Baptiste Fertille}}\\
+    {\large \textbf{Alban Rouiller}}\\
+    {\large \textbf{Jonathan Sling}}\\
+    {\large \textbf{Augustin De Toffoli}}\\[2cm]
+    {\large \textbf{\today}}\\
+    {CIPA 4 Brest - Année académique 2024-2025}\\ [0.5cm]
+    \hspace{-2.5cm}
+    \includegraphics[height = 3cm]{Image/Yncrea_ouest.png}
+    \hspace{5cm}
+    \includegraphics[height = 3cm]{Image/cti.png}\\
+\end{titlepage}
+
+\newpage
+\mbox{}
+
+\newpage
+\tableofcontents
+
+\newpage
+\mbox{}
+
+\newpage
+
+
+\section{Le projet Cleanistère}
+\subsection{Description}
+Ce projet vise à structurer et développer les actions de ramassage des déchets sur l’ensemble du littoral de la rade de Brest, de Plouzané à Plougastel-Daoulas. Porté par une association environnementale locale, il s’appuie sur un outil numérique participatif destiné à fédérer une communauté de bénévoles, faciliter l’organisation et la visibilité des initiatives, et renforcer l’engagement citoyen en faveur de la protection du littoral. Intuitif et ouvert à tous, cet outil se veut un levier concret d’impact environnemental positif.
+\subsection{Vision}
+\begin{quotation}
+    \texttt{Faire du Finistère un modèle de littoral préservé et sans déchets en transformant chaque citoyen en acteur du changement grâce à une plateforme numérique fédératrice et intuitive}
+\end{quotation}
+\subsection{Logo et charte graphique}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{logo_Cleanistère.png}
+        \caption{logo}
+        \label{logo_cleanistere}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \fbox{\includegraphics[width=\textwidth]{palette.png}}
+        \vspace{2.5cm}
+        \caption{Palette light and dark mode}
+        \label{palette_cleanistère}
+    \end{subfigure}
+            
+    \caption{Charte graphique de Cleanistère}
+    \label{colors_palette}
+\end{figure}
+
+\subsection{Persona et user story} 
+- Marie, la citoyenne engagée\\
+- Julien, le professeur\\
+- Claire, la maman écoresponsable\\
+- Luc, le bénévole expérimenté / militant\\
+- Sophie, conseillère municipale\\
+
+Une description plus détaillée peut-être trouvée en annexe \ref{Persona}
+
+
+\section{Organisation interne}
+\begin{itemize}
+    \item Product Owner : Augustin De Toffoli
+    \item Scrum Master : Jonathan Sling
+    \item Developpement Team : Alban Rouiller
+    \item Developpement Team : Baptiste Fertille
+\end{itemize}
+
+
+\section{Organisation du projet}
+\subsection{Methodologie}\label{organisation}
+Le première chose à faire est de décider, sur base des users story de nos persona (cf. \ref{Persona}), les fonctionnalités à implémenter. Pour ne pas se perdre, chaque fonctionnalité est labelisé du persona et de l'user story d'où elle vient.
+L'accès au backlog peut se faire via ce lien : \href{https://github.com/users/Ramdek/projects/1}{Backlog GitHub}
+
+Une fois les backlog fixés, les issues sont classées par priorité pour baliser le projet. Nous avons choisis de répartir notre fichier en 3 niveaux de priorité. 
+Les Milestones du projet sont disponible via ce lien : \href{https://github.com/Ramdek/cleanistere/milestones?sort=title&direction=asc}{Milestones GitHub}
+
+Avant de commencer les sprints, la complexité de chaque issue est estimé en niveau (XS,S,M,L,XL)
+
+\subsubsection{Definition of ready (DOR)}
+La DOR représente les critères qu'une User Story devra impérativement remplir avant d'être incluse dans un sprint lors du Sprint Planning.\\
+Nous avons retenu les critères suivants :
+\begin{itemize}
+    \item Valeur métier claire : La priorité et l'objectif pour l'utilisateur sont bien définis.
+    \item Description complète : L'US respecte le format « En tant que... Je souhaite... Car... » et est dénuée d'ambiguïté.
+    \item Critères d'acceptation définis : Les conditions de succès sont explicitement listées.
+    \item Estimée : La complexité a été évaluée par l'équipe.
+    \item Petite taille : L'histoire est suffisamment découpée pour être réalisable en un seul sprint.
+    \item Dépendances identifiées : Aucun obstacle externe majeur ne bloque le démarrage de la tâche.
+\end{itemize}
+
+ 
+
+\subsubsection{Definition of Done (DOD)}
+La DOD est la liste utilisée pour déclarer qu'une fonctionnalité est totalement terminée et constitue un incrément potentiellement livrable.
+
+\begin{itemize}
+    \item Critères d'acceptation validés : Tous les tests fonctionnels définis initialement sont passés avec succès.
+    \item Qualité technique : Le code est intégré, revu et ne présente pas de défauts majeurs.
+    \item Revue UX terminée : L'interface respecte la charte graphique et la maquettes validée.
+    \item Documentation à jour : Les informations nécessaires au projet ont été consignées dans le rapport ou les annexes.
+    \item Validation finale : Le PO a inspecté l'incrément lors de la review.
+\end{itemize}
+
+
+\newpage
+\subsection{Sprints}
+Le projet sera réalisé en 4 sprint de chacun environ 1.5h
+\subsubsection{Sprint 1 : Fondations et Identité Visuelle}
+\ssssection{Objectif}
+L'objectif de ce sprint était d'établir l'architecture technique et l'identité visuelle du projet
+
+\ssssection{Déroulement}
+Lors du Sprint Planning, le Product Owner a clarifié la vision. La Dev Team s'est concentrée sur la création de la maquette Excalidraw et la définition de la structure de données.\\
+Vous pouvez retrouver la maquette du site ici : \href{https://excalidraw.com/#room=7317f75d85cd1c33599f,4EBI3ZhyrUezl7wpOETm1Q}{Maquette Excalidraw} et en annexe \ref{maquette}
+
+\begin{itemize}
+    \item Création de la maquette
+    \item Creation de la charte graphique du projet (cf. figure \ref{colors_palette})
+    \item Spécification détaillées des issues (cf. \ref{organisation})
+    \item Structure des données
+    \item Répartissions des taches
+\end{itemize}
+
+\ssssection{Retrospective}
+La première retrospective a permis de valider la charte graphique (palette "Littoral" et logo). La Rétrospective a servi à ajuster la communication entre les développeurs pour éviter les doublons dans le code.
+
+\subsubsection{Sprint 2 : Mise en œuvre du MVP (Minimum Viable Product)}
+\ssssection{Objectif}
+Développer la colonne vertébrale du site, comprenant la base de donnée, la structure du site et les bases de la cartes interactive.
+
+\ssssection{Déroulement}
+Lors du planning, il a été décidé de se concentrer, vu le peu de temps disponible, de se concentrer sur les bases de viabilité fonctionnel du site.
+\begin{itemize}
+    \item Développement web de la maquette
+    \item Intégration de la  carte interactive 
+    \item Réalisation de la base de donnée
+    \item Mise en ligne du site
+\end{itemize}
+
+\ssssection{Retrospective}
+La retrospective a mit en évidence les fonctionalités manquantes de la carte interactive et permis la mise au point de la communication avec la base de donnée.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{instant_project.png}
+    \caption{instantané de l'évolution du projet à la fin du sprint 2}
+    \label{instant_project_evol}
+\end{figure}
+
+\subsubsection{Sprint 3: Consolidation des bases}
+\ssssection{Objectif}
+Transformer l'application en un outil de gestion personnalisé pour pérenniser l'engagement des bénévoles et des partenaires.
+
+\ssssection{Déroulement}
+\begin{itemize}
+    \item Systeme de login mis en place
+    \item Amélioration de la cartographie
+    \item Ajout de statistiques
+    \item Page de présentation du projet
+\end{itemize}
+
+\ssssection{Retrospective}
+L'équipe s'est rendu compte que les statistiques et le systeme de login prennent plus longtemps que prévu à être réalisé.
+
+\subsubsection{Sprint 4 : Finalisation}
+\ssssection{Objectif}
+Finaliser la page pour lui donner une robustesse vis à vis des bugs qui pourraient survenir
+
+\ssssection{Déroulement}
+Le dernier sprint a été dédié à la recherche de bugs ou d'erreur qui pourraient survenir et à les résoudre.
+
+\begin{itemize}
+    \item Finalisation des statistiques
+    \item Finalisation de la connexion
+    \item Ajout de la fonctionalité d'ajout d'évenement
+    \item Debug des fonctionalités
+\end{itemize}
+
+\ssssection{Retrospective}
+Le projet a révelé des bug inatendut présentant des difficultés à être résolue
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{instantané_final.png}
+    \caption{Instantané final}
+\end{figure}
+
+\subsection{Démarche technique}
+\subsubsection{HTML et Javascript}
+Nécessaire pour la construction d'un site
+\subsubsection{CSS}
+Utilisation de TailWindCSS pour accélérer le développement des visuels du site
+
+
+
+\newpage
+\section{Annexes}
+\subsection{Persona}\label{Persona}
+Les personas et User story peuvent-être trouvées sur \href{https://github.com/Ramdek/cleanistere/blob/main/README.md}{Persona et user story GitHub}
+\begin{figure}[H]
+    \centering
+    \vspace{-2cm}
+    \includegraphics[width=0.85\linewidth]{persona_visu.png}
+    \caption{Visuel de 4 persona}
+    \label{Visu_persona}
+\end{figure}
+
+\subsection{Maquette}\label{maquette}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\linewidth]{maquette.png}
+    \caption{Maquette du site}
+\end{figure}
+
+\end{document}
+
+
