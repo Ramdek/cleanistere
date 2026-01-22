@@ -11,40 +11,67 @@ function getDefaultState() {
     }
 }
 
+function closeAndReInit() {
+
+    loginDialog.close();
+    init_login();
+}
+
+function handleLoginKeyPress(e) {
+
+    if (e.key == "Escape") {
+        closeAndReInit();
+    } else if (e.key == "Enter") {
+        tryLogin();
+    }
+}
+
 function showLoginModal() {
 
     userField.value = '';
     passField.value = '';
-    
+
     loginDialog.showModal();
+
+    document.querySelector("el-dialog-backdrop").addEventListener("click", closeAndReInit, { once: true });
+    document.querySelector("body").addEventListener("keydown", handleLoginKeyPress);
+}
+
+function closeLoginModal() {
+
+    document.querySelector("el-dialog-backdrop").removeEventListener("click", closeAndReInit, { once: true });
+    document.querySelector("body").removeEventListener("keydown", handleLoginKeyPress);
+    document.getElementById("login-submit").removeEventListener("click", tryLogin);
+    loginDialog.close();
 }
 
 function tryLogin() {
 
     const username = userField.value;
     const password = btoa(passField.value);
-    
+
+    if (username == "" || password == "") {
+        return;
+    }
+
     let utilisateur = JSON.parse(localStorage.getItem('Utilisateurs')).find(user => user.pseudo == username);
 
-    console.debug(utilisateur);
-
-    if (password == utilisateur.mdp) {
-
+    if (utilisateur == null || password != utilisateur.mdp) {
+        alert("Les identifiants ne sont pas valides");
+    } else {
         let newState = getDefaultState();
         newState.userId = utilisateur.id;
         newState.isLoggedIn = true;
 
         localStorage.setItem("state", JSON.stringify(newState));
 
-        loginDialog.close();
-    } else {
-        alert("Le identifiants ne sont pas valides");
+        closeLoginModal();
     }
 }
 
 function init_login() {
 
-    document.getElementById("login-button").addEventListener("click", showLoginModal);
+    document.getElementById("login-button").addEventListener("click", showLoginModal, { once: true });
     document.getElementById("login-submit").addEventListener("click", tryLogin);
 }
 
