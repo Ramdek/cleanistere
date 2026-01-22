@@ -1,6 +1,6 @@
 'use strict';
 
-function loadData() {
+async function loadData() {
     fetch('./assets/misc/bdd.json')
         .then(response => response.json())
         .then(data => {

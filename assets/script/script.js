@@ -1,12 +1,12 @@
 'use strict'
 
-function init() {
+async function init() {
     // Vérification du local storage
     if (!localStorage.getItem('Utilisateurs') || !localStorage.getItem('Evenements') 
         || !localStorage.getItem('Inscrits') || !localStorage.getItem('Materiels') ||
         !localStorage.getItem('Zones'))
     {
-        loadData();
+        await loadData();
     } else {
         // Si le local storage n'est pas vide, utiliser les données existantes
         const eventsData = JSON.parse(localStorage.getItem('Evenements'));
