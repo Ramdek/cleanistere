@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <!-- Import for leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
     <script src="./assets/script/map.js" defer></script>
     <script src="./assets/script/data.js" defer></script>
     <script src="./assets/script/login.js" defer></script>
@@ -35,14 +37,43 @@
             </div>
             <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-color-accent">Connexion/Deconnexion</button> -->
             <button id="login-button"
-                class="bg-primary hover:bg-primary-2 text-white font-bold py-2 px-4 rounded text-color-accent">Connexion</button>
+                class="bg-primary text-white font-bold py-2 px-4 rounded text-color-accent">Connexion</button>
         </header>
 
         <!-- Main Content Section -->
         <main class="container mx-auto p-6">
             <div class="bg-white dark:bg-color-bg-main shadow-md rounded-lg mb-4 p-5">
-                <div class="p-4 border rounded-lg border-color-border">
-                    <h2 class="font-semibold text-xl text-color-ocean">Événement mis en avant</h2>
+                <h2 class="font-semibold text-xl text-color-ocean">Événement mis en avant</h2>
+                <div class=" mx-auto mt-4">
+                    <div
+                        class="flex gap-3 bg-white border border-gray-300 rounded-xl overflow-hidden items-center justify-start">
+
+                        <div class="relative w-36 h-36 flex-shrink-0">
+                            <img class="absolute left-0 top-0 w-full h-full object-cover object-center transition duration-50"
+                                loading="lazy"
+                                src="./assets/img/moulin-blanc.png">
+                        </div>
+
+                        <div class="flex flex-col gap-2 py-2">
+
+                            <p class="text-xl font-bold">Ramassage de déchets au Moulin Blanc.</p>
+
+                            <p class="text-gray-500">
+                                Les participants seront invités à se rassembler au moulin, où nous commencerons par une
+                                brève présentation sur l'importance de la gestion des déchets et l'impact de notre
+                                consommation ...
+                            </p>
+
+                            <button type="button"
+                                class="bg-primary px-4 py-1 w-32 text-white bg-blue-300 rounded focus:outline-none"
+                                disabled>
+                                Consulter
+                            </button>
+
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 
@@ -50,11 +81,15 @@
                 <div class="p-4 border rounded-lg border-color-border">
                     <h2 class="font-semibold text-xl text-color-ocean">Présentation</h2>
                     <div class="pres_content">
-                        <p>Ce projet vise à structurer et développer les actions de ramassage des déchets sur l’ensemble du littoral de la
-rade de Brest, de Plouzané à Plougastel-Daoulas.<br>Porté par une association environnementale locale, il s’appuie
-sur ce site participatif destiné à fédérer une communauté de bénévoles, faciliter l’organisation et la
-visibilité des initiatives, et renforcer l’engagement citoyen en faveur de la protection du littoral.<br>Intuitif et ouvert
-à tous, cet outil se veut un levier concret d’impact environnemental positif.</p>
+                        <p>Ce projet vise à structurer et développer les actions de ramassage des déchets sur l’ensemble
+                            du littoral de la
+                            rade de Brest, de Plouzané à Plougastel-Daoulas.<br>Porté par une association
+                            environnementale locale, il s’appuie
+                            sur ce site participatif destiné à fédérer une communauté de bénévoles, faciliter
+                            l’organisation et la
+                            visibilité des initiatives, et renforcer l’engagement citoyen en faveur de la protection du
+                            littoral.<br>Intuitif et ouvert
+                            à tous, cet outil se veut un levier concret d’impact environnemental positif.</p>
                     </div>
                 </div>
             </div>
@@ -84,75 +119,77 @@ visibilité des initiatives, et renforcer l’engagement citoyen en faveur de la
         <footer class="text-center mt-6 text-color-text-muted">
             Copyright
         </footer>
-    </main>
+        </main>
 
-    <!-- Login -->
-    <el-dialog>
-        <dialog id="login-dialog" aria-labelledby="dialog-title"
-            class="fixed inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent">
-            <el-dialog-backdrop
-                class="fixed inset-0 bg-gray-900/50 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"></el-dialog-backdrop>
+        <!-- Login -->
+        <el-dialog>
+            <dialog id="login-dialog" aria-labelledby="dialog-title"
+                class="fixed inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent">
+                <el-dialog-backdrop
+                    class="fixed inset-0 bg-gray-900/50 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"></el-dialog-backdrop>
 
-            <div id="login" tabindex="0"
-                class="relative flex min-h-full items-end justify-center p-4 text-center focus:outline-none sm:items-center sm:p-0">
+                <div id="login" tabindex="0"
+                    class="relative flex min-h-full items-end justify-center p-4 text-center focus:outline-none sm:items-center sm:p-0">
 
-                <div class="flex fle-col items-center justify-center">
-                    <div class="py-6 px-4">
-                        <div class="items-center gap-6 max-w-6xl w-full">
-                            <div
-                                class="border border-slate-300 bg-white rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-lg:mx-auto">
-                                <form class="space-y-6">
-                                    <div class="mb-12">
-                                        <h1 class="text-slate-900 text-3xl font-semibold">Connexion</h1>
-                                        <p class="text-slate-600 text-[15px] mt-6 leading-relaxed">Connecter vous à
-                                            votre compte pour contribuer aux évènements disponibles.</p>
-                                    </div>
-
-                                    <div>
-                                        <label class="text-slate-900 text-sm font-medium mb-2 block">Nom d'utilisateur</label>
-                                        <div class="relative flex items-center">
-                                            <input name="username" type="text" required
-                                                class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
-                                                placeholder="Entrez votre nom d'utilisateur" />
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
-                                                class="w-auto h-1/2 absolute right-4" viewBox="0 0 24 24">
-                                                <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
-                                                <path
-                                                    d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
-                                                    data-original="#000000"></path>
-                                            </svg>
+                    <div class="flex fle-col items-center justify-center">
+                        <div class="py-6 px-4">
+                            <div class="items-center gap-6 max-w-6xl w-full">
+                                <div
+                                    class="border border-slate-300 bg-white rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-lg:mx-auto">
+                                    <form class="space-y-6">
+                                        <div class="mb-12">
+                                            <h1 class="text-slate-900 text-3xl font-semibold">Connexion</h1>
+                                            <p class="text-slate-600 text-[15px] mt-6 leading-relaxed">Connecter vous à
+                                                votre compte pour contribuer aux évènements disponibles.</p>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <label class="text-slate-900 text-sm font-medium mb-2 block">Mot de passe</label>
-                                        <div class="relative flex items-center">
-                                            <input name="password" type="password" required
-                                                class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
-                                                placeholder="Entrez votre mot de passe" />
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
-                                                class="w-auto h-1/2 absolute right-4 cursor-pointer"
-                                                viewBox="0 0 128 128">
-                                                <path
-                                                    d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
-                                                    data-original="#000000"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
 
-                                    <div class="!mt-12">
-                                        <button id="login-submit" type="button"
-                                            class="w-full shadow-xl py-2.5 px-4 text-[15px] font-medium tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer">
-                                            Se connecter
-                                        </button>
-                                    </div>
-                                </form>
+                                        <div>
+                                            <label class="text-slate-900 text-sm font-medium mb-2 block">Nom
+                                                d'utilisateur</label>
+                                            <div class="relative flex items-center">
+                                                <input name="username" type="text" required
+                                                    class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                    placeholder="Entrez votre nom d'utilisateur" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
+                                                    class="w-auto h-1/2 absolute right-4" viewBox="0 0 24 24">
+                                                    <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                                                    <path
+                                                        d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
+                                                        data-original="#000000"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="text-slate-900 text-sm font-medium mb-2 block">Mot de
+                                                passe</label>
+                                            <div class="relative flex items-center">
+                                                <input name="password" type="password" required
+                                                    class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                    placeholder="Entrez votre mot de passe" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
+                                                    class="w-auto h-1/2 absolute right-4 cursor-pointer"
+                                                    viewBox="0 0 128 128">
+                                                    <path
+                                                        d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
+                                                        data-original="#000000"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <div class="!mt-12">
+                                            <button id="login-submit" type="button"
+                                                class="w-full shadow-xl py-2.5 px-4 text-[15px] font-medium tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer">
+                                                Se connecter
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </dialog>
-    </el-dialog>
+            </dialog>
+        </el-dialog>
 </body>
 
 </html>
