@@ -1,6 +1,18 @@
 'use strict'
 
 function init() {
+    // Vérification du local storage
+    if (!localStorage.getItem('Utilisateurs') || !localStorage.getItem('Evenements') 
+        || !localStorage.getItem('Inscrits') || !localStorage.getItem('Materiels') ||
+        !localStorage.getItem('Zones'))
+    {
+        loadData();
+    } else {
+        // Si le local storage n'est pas vide, utiliser les données existantes
+        const eventsData = JSON.parse(localStorage.getItem('Evenements'));
+        addMarkers(eventsData);
+    }
+
     display_stats();
     
     var state = JSON.parse(localStorage.getItem("state"));
