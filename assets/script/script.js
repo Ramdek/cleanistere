@@ -1,8 +1,9 @@
 'use strict'
 
 function init() {
-    let state = JSON.parse(localStorage.getItem("state"));
-
+    display_stats();
+    
+    var state = JSON.parse(localStorage.getItem("state"));
     if (state && state.isLoggedIn) {
         document.getElementById("presentation").style.display = "none";
         var users = JSON.parse(localStorage.getItem("Utilisateurs"));
