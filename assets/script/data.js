@@ -1,7 +1,7 @@
 'use strict';
 
 async function loadData() {
-    fetch('./assets/misc/bdd.json')
+    await fetch('./assets/misc/bdd.json')
         .then(response => response.json())
         .then(data => {
             for (const [key, value] of Object.entries(data)) {

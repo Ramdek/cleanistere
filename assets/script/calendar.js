@@ -1,6 +1,6 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function() {
+function initCalendar() {
     var calendarEl = document.getElementById('calendar');
 
     // Vérification du local storage pour récupérer les événements
@@ -29,4 +29,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     calendar.setOption('locale', 'fr');
     calendar.render();
-});
+}

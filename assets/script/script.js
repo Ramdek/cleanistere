@@ -14,6 +14,7 @@ async function init() {
     }
 
     display_stats();
+    initCalendar();
     
     var state = JSON.parse(localStorage.getItem("state"));
     if (state && state.isLoggedIn) {
