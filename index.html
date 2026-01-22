@@ -4,19 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/logo.webp" type="image/x-icon">
     <title>Cleanistère - Accueil</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/tailwindcss" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <!-- Import for leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
     <script src="./assets/script/map.js" defer></script>
-    <script src="./assets/script/data.js" defer></script>
+    <script src="./assets/script/data.js" defer></script><script src="./assets/script/login.js" defer></script>
     <script src="./assets/script/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
 
 <body class="bg-gray-100">
@@ -80,9 +79,96 @@ visibilité des initiatives, et renforcer l’engagement citoyen en faveur de la
             </div>
         </div>
 
-        <!-- Toast popup -->
-        <div id="toast" class="toast hidden"></div>
-    </div>
+        <div class="bg-white dark:bg-color-bg-main shadow-md rounded-lg mb-4 p-5">
+            <div class="p-4 border rounded-lg border-color-border">
+                <h2 class="font-semibold text-xl text-color-ocean">Présentation (si non connecté)</h2>
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-color-bg-main shadow-md rounded-lg mb-4 p-5">
+            <div class="p-4 border rounded-lg border-color-border">
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-color-bg-main shadow-md rounded-lg p-5">
+            <div class="p-4 border rounded-lg border-color-border">
+                <h2 class="font-semibold text-xl text-color-ocean">Calendrier</h2>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center mt-6 text-color-text-muted">
+        Copyright
+    </footer>
+
+    <!-- Login -->
+    <el-dialog>
+        <dialog id="login-dialog" aria-labelledby="dialog-title"
+            class="fixed inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent">
+            <el-dialog-backdrop
+                class="fixed inset-0 bg-gray-900/50 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"></el-dialog-backdrop>
+
+            <div id="login" tabindex="0"
+                class="flex min-h-full items-end justify-center p-4 text-center focus:outline-none sm:items-center sm:p-0">
+
+                <div class="flex fle-col items-center justify-center">
+                    <div class="py-6 px-4">
+                        <div class="items-center gap-6 max-w-6xl w-full">
+                            <div
+                                class="border border-slate-300 bg-white rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-lg:mx-auto">
+                                <form class="space-y-6">
+                                    <div class="mb-12">
+                                        <h1 class="text-slate-900 text-3xl font-semibold">Connexion</h1>
+                                        <p class="text-slate-600 text-[15px] mt-6 leading-relaxed">Connecter vous à
+                                            votre compte pour contribuer aux évènements disponibles.</p>
+                                    </div>
+
+                                    <div>
+                                        <label class="text-slate-900 text-sm font-medium mb-2 block">Nom d'utilisateur</label>
+                                        <div class="relative flex items-center">
+                                            <input name="username" type="text" required
+                                                class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                placeholder="Entrez votre nom d'utilisateur" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
+                                                class="w-auto h-1/2 absolute right-4" viewBox="0 0 24 24">
+                                                <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                                                <path
+                                                    d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
+                                                    data-original="#000000"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="text-slate-900 text-sm font-medium mb-2 block">Mot de passe</label>
+                                        <div class="relative flex items-center">
+                                            <input name="password" type="password" required
+                                                class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                placeholder="Entrez votre mot de passe" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
+                                                class="w-auto h-1/2 absolute right-4 cursor-pointer"
+                                                viewBox="0 0 128 128">
+                                                <path
+                                                    d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
+                                                    data-original="#000000"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="relative !mt-12">
+                                        <button id="login-submit" type="button"
+                                            class="w-full shadow-xl py-2.5 px-4 text-[15px] font-medium tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer">
+                                            Se connecter
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+    </el-dialog>
 </body>
 
 </html>
