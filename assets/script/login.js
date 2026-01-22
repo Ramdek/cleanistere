@@ -26,7 +26,9 @@ function handleLoginKeyPress(e) {
     }
 }
 
-function showLoginModal() {
+function showLoginModal(e) {
+
+    e.preventDefault();
 
     userField.value = '';
     passField.value = '';
@@ -35,6 +37,7 @@ function showLoginModal() {
 
     document.querySelector("el-dialog-backdrop").addEventListener("click", closeAndReInit, { once: true });
     document.querySelector("body").addEventListener("keydown", handleLoginKeyPress);
+    document.getElementById("login-submit").addEventListener("click", tryLogin);
 }
 
 function closeLoginModal() {
@@ -43,6 +46,7 @@ function closeLoginModal() {
     document.querySelector("body").removeEventListener("keydown", handleLoginKeyPress);
     document.getElementById("login-submit").removeEventListener("click", tryLogin);
     loginDialog.close();
+    init();
 }
 
 function tryLogin() {
@@ -69,10 +73,24 @@ function tryLogin() {
     }
 }
 
-function init_login() {
+function disconnect() {
 
-    document.getElementById("login-button").addEventListener("click", showLoginModal, { once: true });
-    document.getElementById("login-submit").addEventListener("click", tryLogin);
+    localStorage.setItem("state", JSON.stringify(getDefaultState()));
+
+    console.debug(localStorage.getItem("state"))
+    init();
 }
 
-init_login();
+function init_login() {
+
+    if (JSON.parse(localStorage.getItem("state")).isLoggedIn) {
+
+        setTimeout(() => {
+
+            document.getElementById("login-button").addEventListener("click", disconnect, { once: true });
+        }, 100);
+    } else {
+
+        document.getElementById("login-button").addEventListener("click", showLoginModal, { once: true });
+    }
+}
