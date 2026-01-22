@@ -45,6 +45,7 @@ function closeEventModal() {
     document.querySelector("body").removeEventListener("keydown", handleEventKeyPress);
     document.getElementById("addEvent-submit").removeEventListener("click", createEvent);
     addEventDialog.close();
+    init();
 }
 
 function createEvent() {
