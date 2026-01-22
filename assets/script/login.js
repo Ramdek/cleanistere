@@ -71,7 +71,6 @@ function disconnect() {
 
     localStorage.setItem("state", JSON.stringify(getDefaultState()));
 
-    console.debug(localStorage.getItem("state"))
     if (!document.getElementById("addEvent-button").classList.contains("hidden")) {
         document.getElementById("addEvent-button").classList.add("hidden");
     }

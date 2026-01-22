@@ -152,12 +152,8 @@ function onMapClick(e) {
         map.removeLayer(currentMarker);
     }
 
-    console.debug(e)
-
     currentMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
     map.addLayer(currentMarker);
-
-    console.debug(currentMarker._latlng)
 }
 
 map.on('click', onMapClick);
