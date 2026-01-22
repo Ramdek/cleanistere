@@ -80,17 +80,3 @@ function disconnect() {
     console.debug(localStorage.getItem("state"))
     init();
 }
-
-function init_login() {
-
-    if (JSON.parse(localStorage.getItem("state")).isLoggedIn) {
-
-        setTimeout(() => {
-
-            document.getElementById("login-button").addEventListener("click", disconnect, { once: true });
-        }, 100);
-    } else {
-
-        document.getElementById("login-button").addEventListener("click", showLoginModal, { once: true });
-    }
-}
