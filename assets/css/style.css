@@ -12,3 +12,7 @@
 .bg-primary {
     background-color: var(--mid-blue);
 }
+
+#map {
+    height: 20vh;
+}
