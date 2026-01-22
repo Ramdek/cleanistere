@@ -27,8 +27,11 @@ async function init() {
 
             document.getElementById("login-button").addEventListener("click", disconnect, { once: true });
         }, 100);
-    } else {
 
+        document.getElementById("addEvent-button").classList.remove("hidden");
+        document.getElementById("addEvent-button").addEventListener("click", showAddEventModal, { once: true });
+
+    } else {
         document.getElementById("presentation").style.display = "inherit";
         document.getElementById("login-button").innerText = "Connexion";
 

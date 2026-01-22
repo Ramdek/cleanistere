@@ -11,16 +11,10 @@ function getDefaultState() {
     }
 }
 
-function closeAndReInit() {
-
-    loginDialog.close();
-    init_login();
-}
-
 function handleLoginKeyPress(e) {
 
     if (e.key == "Escape") {
-        closeAndReInit();
+        closeLoginModal();
     } else if (e.key == "Enter") {
         tryLogin();
     }
@@ -35,14 +29,14 @@ function showLoginModal(e) {
 
     loginDialog.showModal();
 
-    document.querySelector("el-dialog-backdrop").addEventListener("click", closeAndReInit, { once: true });
+    document.querySelector("#login-dialog el-dialog-backdrop").addEventListener("click", closeLoginModal, { once: true });
     document.querySelector("body").addEventListener("keydown", handleLoginKeyPress);
     document.getElementById("login-submit").addEventListener("click", tryLogin);
 }
 
 function closeLoginModal() {
 
-    document.querySelector("el-dialog-backdrop").removeEventListener("click", closeAndReInit, { once: true });
+    document.querySelector("#login-dialog el-dialog-backdrop").removeEventListener("click", closeLoginModal, { once: true });
     document.querySelector("body").removeEventListener("keydown", handleLoginKeyPress);
     document.getElementById("login-submit").removeEventListener("click", tryLogin);
     loginDialog.close();

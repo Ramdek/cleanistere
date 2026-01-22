@@ -20,3 +20,10 @@
 #calendar {
     height: 50vh;
 }
+
+#addEvent-button {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    z-index: 1000;
+}

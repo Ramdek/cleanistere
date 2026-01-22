@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <!-- Import for leaflet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -19,9 +18,11 @@
     <script src="./assets/script/data.js" defer></script>
     <script src="./assets/script/login.js" defer></script>
     <script src="./assets/script/stats.js" defer></script>
+    <script src="./assets/script/evenements.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 
     <!-- Import for calendarjs -->
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js' defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js" defer></script>
     <script src="./assets/script/calendar.js" defer></script>
 
     <script src="./assets/script/script.js" defer></script>
@@ -106,7 +107,10 @@
 
             <div class="bg-white dark:bg-color-bg-main shadow-md rounded-lg mb-4 p-5">
                 <div class="p-4 border rounded-lg border-color-border">
-                    <div id="map"></div>
+                    <div id="map">
+
+                        <button id="addEvent-button" class="bg-primary hover:bg-primary-2 text-white font-bold py-2 px-4 rounded text-color-accent hidden">Ajouter un event</button>
+                    </div>
                 </div>
             </div>
 
@@ -118,9 +122,8 @@
         </main>
 
         <footer class="text-center mt-6 text-color-text-muted">
-            Copyright
+            <a href="https://www.la-rache.com/">Certified - ISO 1664</a>
         </footer>
-        </main>
 
         <!-- Login -->
         <el-dialog>
@@ -191,6 +194,132 @@
                 </div>
             </dialog>
         </el-dialog>
+
+        <!-- Add event -->
+        <el-dialog>
+            <dialog id="add-event-dialog" aria-labelledby="dialog-title"
+                class="fixed inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent">
+                <el-dialog-backdrop
+                    class="fixed inset-0 bg-gray-900/50 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"></el-dialog-backdrop>
+
+                <div id="addEvent" tabindex="0"
+                    class="relative flex min-h-full items-end justify-center p-4 text-center focus:outline-none sm:items-center sm:p-0">
+
+                    <div class="flex fle-col items-center justify-center">
+                        <div class="py-6 px-4">
+                            <div class="items-center gap-6 max-w-6xl w-full">
+                                <div
+                                    class="border border-slate-300 bg-white rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-lg:mx-auto">
+                                    <form class="space-y-6">
+                                        <div class="mb-12">
+                                            <h1 class="text-slate-900 text-3xl font-semibold">Création d'évènement</h1>
+                                            <p class="text-slate-600 text-[15px] mt-6 leading-relaxed">Créer un évènement pour partager votre collecte !</p>
+                                        </div>
+
+                                        <div class="flex space-x-4">
+                                            <div class="w-1/2">
+                                                <label class="text-slate-900 text-sm font-medium mb-2 block">Latitude</label>
+                                                <div class="relative flex items-center">
+                                                    <input name="lat" type="text" required
+                                                        class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                        placeholder="Latitude" />
+                                                </div>
+                                            </div>
+                                            <div clas="w-1/2">
+                                                <label class="text-slate-900 text-sm font-medium mb-2 block">Longitude</label>
+                                                <div class="relative flex items-center">
+                                                    <input name="lon" type="text" required
+                                                        class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                        placeholder="Longitude" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex space-x-4">
+                                            <div class="w-1/2">
+                                                <label class="text-slate-900 text-sm font-medium mb-2 block">Code postal</label>
+                                                <div class="relative flex items-center">
+                                                    <input name="cp" type="number" required
+                                                        class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                        placeholder="29200" />
+                                                </div>
+                                            </div>
+                                            <div class="w-1/2">
+                                                <label class="text-slate-900 text-sm font-medium mb-2 block">Ville</label>
+                                                <div class="relative flex items-center">
+                                                    <input name="ville" type="text" required
+                                                        class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                        placeholder="Entrez le nom de votre ville" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex space-x-4">
+                                            <div class="w-1/3">
+                                                <label class="text-slate-900 text-sm font-medium mb-2 block">Zone couverte en km</label>
+                                                <div class="relative flex items-center">
+                                                    <input name="couverture" type="number" required
+                                                        class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                        placeholder="0" />
+                                                </div>
+                                            </div>
+                                            <div class="w-1/3">
+                                                <label class="text-slate-900 text-sm font-medium mb-2 block">Quantité de déchets à récoltés en kg</label>
+                                                <div class="relative flex items-center">
+                                                    <input name="dechet_estimation" type="number" required
+                                                        class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                        placeholder="100" />
+                                                </div>
+                                            </div>
+                                            <div class="w-1/3">
+                                                <label class="text-slate-900 text-sm font-medium mb-2 block">Nombre de participants</label>
+                                                <div class="relative flex items-center">
+                                                    <input name="participants" type="number" required
+                                                        class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                        placeholder="10" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex space-x-4">
+                                            <div class="w-1/2">
+                                                <label class="text-slate-900 text-sm font-medium mb-2 block" label-for="start_date">Date de début</label>
+                                                <div class="relative flex items-center">
+                                                    <input name="start_date" type="datetime-local" required
+                                                        class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                        placeholder="10" />
+                                                </div>
+                                            </div>
+
+                                            <div class="w-1/2">
+                                                <label class="text-slate-900 text-sm font-medium mb-2 block" label-for="end_date">Date de fin</label>
+                                                <div class="relative flex items-center">
+                                                    <input name="end_date" type="datetime-local" required
+                                                        class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600"
+                                                        placeholder="10" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="!mt-12">
+                                            <button id="addEvent-submit" type="button"
+                                                class="w-full shadow-xl py-2.5 px-4 text-[15px] font-medium tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer">
+                                                Créer l'évènement
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+        </el-dialog>
+
+
+    </div>
+
+    <!-- Création d'un évènement -->
 </body>
 
 </html>
