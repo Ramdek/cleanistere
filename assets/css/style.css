@@ -1,0 +1,14 @@
+:root {
+    --ocean-blue: #0B4F6C;
+    --mid-blue: #0E6F9A;
+    --eco-green: #66B81F;
+    --soft-green: #EAF5E6;
+    --lighthouse-yellow: #F4B400;
+    --dark-slate: #1F2933;
+    --light-gray: #F4F6F8;
+    --white: #FFFFFF;
+}
+
+.bg-primary {
+    background-color: var(--mid-blue);
+}

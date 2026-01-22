@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleanistère - Accueil</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/tailwindcss" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="bg-gray-100">
+    <div>
+        <!-- Header Section -->
+        <header
+            class="bg-white dark:bg-color-bg-main shadow-md rounded-lg h-24 px-6 mb-6 flex justify-between items-center border-b">
+            <div class="flex justify-center items-center h-full">
+                <img class="h-3/4" src="./assets/img/logo.webp" alt="logo">
+                <h1 class="text-lg font-bold text-color-ocean">Cleanistère</h1>
+            </div>
+            <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-color-accent">Connexion/Deconnexion</button> -->
+            <button id="openModal"
+                class="bg-primary hover:bg-primary-2 text-white font-bold py-2 px-4 rounded text-color-accent">Connexion/Deconnexion</button>
+        </header>
+
+        <!-- Main Content Section -->
+        <main class="container mx-auto p-6">
+            <div class="bg-white dark:bg-color-bg-main shadow-md rounded-lg mb-4 p-5">
+                <div class="p-4 border rounded-lg border-color-border">
+                    <h2 class="font-semibold text-xl text-color-ocean">Événement mis en avant</h2>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-color-bg-main shadow-md rounded-lg p-5">
+                <div class="mb-4 p-4 border rounded-lg border-color-border">
+                    <h2 class="font-semibold text-xl text-color-ocean">Présentation (si non connecté)</h2>
+                </div>
+                <div class="mb-4 p-4 border rounded-lg border-color-border">
+                    <h2 class="font-semibold text-xl text-color-ocean">Carte interactive</h2>
+                </div>
+                <div class="mb-4 p-4 border rounded-lg border-color-border">
+                    <h2 class="font-semibold text-xl text-color-ocean">Calendrier</h2>
+                </div>
+            </div>
+        </main>
+
+        <footer class="text-center mt-6 text-color-text-muted">
+            Copyright
+        </footer>
+
+        <!-- Modal -->
+        <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+            <div class="modal-content">
+                <button class="close" aria-label="Close modal">&times;</button>
+                <h2>Our Eco Initiatives</h2>
+                <p>…content goes here…</p>
+            </div>
+        </div>
+
+        <!-- Toast popup -->
+        <div id="toast" class="toast hidden"></div>
+    </div>
+</body>
+
+</html>
