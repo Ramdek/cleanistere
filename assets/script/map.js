@@ -1,3 +1,5 @@
+'use strict';
+
 var map = L.map('map').setView([48.4084476,-4.5409099], 11);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -38,6 +40,19 @@ function showError(error) {
             alert("Une erreur inconnue s'est produite.");
             break;
     }
+}
+
+// Ajout des marqueurs pour chaque événement
+function addMarkers(events) {
+    events.forEach(function(event) {
+        var marker = L.marker([event.latitude, event.longitude]).addTo(map);
+        marker.bindPopup(
+            "<strong>" + event.ville + "</strong><br>" +
+            "Déchets visés : " + event.dechets_vises_kg + " kg<br>" +
+            "Déchets récoltés : " + event.dechets_recoltes_kg + " kg<br>" +
+            "Participants : " + event.nb_participants
+        );
+    });
 }
 
 getUserLocation();
