@@ -29,7 +29,7 @@ async function init() {
         }, 100);
 
         document.getElementById("addEvent-button").classList.remove("hidden");
-        document.getElementById("addEvent-button").addEventListener("click", showAddEventModal, { once: true });
+        document.getElementById("addEvent-button").addEventListener("click", showAddEventModal, { capture: true });
 
     } else {
         document.getElementById("presentation").style.display = "inherit";

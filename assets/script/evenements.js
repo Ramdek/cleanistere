@@ -14,7 +14,7 @@ const endDateField = document.querySelector("#add-event-dialog input[name='end_d
 function handleEventKeyPress(e) {
 
     if (e.key == "Escape") {
-        closeEvent();
+        closeEventModal();
     } else if (e.key == "Enter") {
         createEvent();
     }
@@ -24,8 +24,12 @@ function showAddEventModal(e) {
 
     e.preventDefault();
 
-    latField.value = '';
-    lonField.value = '';
+    if (currentMarker == null) {
+        alert("Veuillez placer un point sur la carte.");
+    }
+
+    latField.value = currentMarker._latlng.lat;
+    lonField.value = currentMarker._latlng.lng;
     cpField.value = '';
     villeField.value = '';
     couvertureField.value = '';
@@ -123,3 +127,37 @@ function createEvent() {
     // Refresh pour màj map + calendar
     location.reload()
 }
+
+/* Remplissage du lieu */
+let currentMarker = null;
+const mapElement = document.getElementById("map");
+
+function isClickOnButton(e) {
+
+    let currentMapBondingRect = mapElement.getBoundingClientRect();
+    
+    let xMax = currentMapBondingRect.height * 0.87;
+    let yMax = currentMapBondingRect.width * 0.13;
+
+    return e.containerPoint.x > xMax &&  e.containerPoint.y < yMax;
+}
+
+function onMapClick(e) {
+
+    if (isClickOnButton(e)) {
+        return;
+    }
+
+    if (currentMarker != null) {
+        map.removeLayer(currentMarker);
+    }
+
+    console.debug(e)
+
+    currentMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+    map.addLayer(currentMarker);
+    
+    console.debug(currentMarker._latlng)
+}
+
+map.on('click', onMapClick);
