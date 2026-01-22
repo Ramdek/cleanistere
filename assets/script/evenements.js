@@ -84,11 +84,11 @@ function createEvent() {
     let evenements = JSON.parse(localStorage.getItem('Evenements')) || [];
 
     // Générer un nouvel ID (le prochain ID disponible)
-    const nouvelId = evenements.length > 0 
-        ? Math.max(...evenements.map(e => e.id)) + 1 
+    const nouvelId = evenements.length > 0
+        ? Math.max(...evenements.map(e => e.id)) + 1
         : 101;
 
-    
+
     // Créer le nouvel événement
     const nouvelEvenement = {
         "id": nouvelId,
@@ -112,7 +112,7 @@ function createEvent() {
 
     // Optionnel : Confirmation ou réinitialisation du formulaire
     alert(`Événement ajouté avec l'ID ${nouvelId}`);
-    
+
     // Réinitialiser les champs du formulaire (optionnel)
     latField.value = '';
     lonField.value = '';
@@ -121,7 +121,7 @@ function createEvent() {
     couvertureField.value = '';
     dechetEstimField.value = '';
     participantsField.value = '';
-    
+
     closeEventModal();
 
     // Refresh pour màj map + calendar
@@ -135,16 +135,16 @@ const mapElement = document.getElementById("map");
 function isClickOnButton(e) {
 
     let currentMapBondingRect = mapElement.getBoundingClientRect();
-    
+
     let xMax = currentMapBondingRect.height * 0.87;
     let yMax = currentMapBondingRect.width * 0.13;
 
-    return e.containerPoint.x > xMax &&  e.containerPoint.y < yMax;
+    return e.containerPoint.x > xMax && e.containerPoint.y < yMax;
 }
 
 function onMapClick(e) {
 
-    if (isClickOnButton(e)) {
+    if (isClickOnButton(e) || !isUserLoggedIn()) {
         return;
     }
 
@@ -156,7 +156,7 @@ function onMapClick(e) {
 
     currentMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
     map.addLayer(currentMarker);
-    
+
     console.debug(currentMarker._latlng)
 }
 

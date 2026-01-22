@@ -1,5 +1,11 @@
 'use strict'
 
+function isUserLoggedIn() {
+
+    var state = JSON.parse(localStorage.getItem("state"));
+    return state && state.isLoggedIn;
+}
+
 async function init() {
     // Vérification du local storage
     if (!localStorage.getItem('Utilisateurs') || !localStorage.getItem('Evenements') 
@@ -15,12 +21,12 @@ async function init() {
 
     display_stats();
     initCalendar();
-    
-    var state = JSON.parse(localStorage.getItem("state"));
-    if (state && state.isLoggedIn) {
+
+    if (isUserLoggedIn()) {
+        var userId = JSON.parse(localStorage.getItem("state")).userId;
         document.getElementById("presentation").style.display = "none";
         var users = JSON.parse(localStorage.getItem("Utilisateurs"));
-        const user = users.find(user => user.id == state.userId)
+        const user = users.find(user => user.id == userId)
         document.getElementById("login-button").innerText = "Déconnexion de " + user.prenom + " " + user.nom;
 
         setTimeout(() => {
