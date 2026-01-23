@@ -1,3 +1,5 @@
+# cmd for starting the serving : deno run --allow-net --allow-read server.ts
+
 import { serve } from "https://deno.land/std@0.203.0/http/server.ts";
 import { serveFile } from "https://deno.land/std@0.203.0/http/file_server.ts";
 
